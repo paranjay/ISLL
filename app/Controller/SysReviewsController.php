@@ -25,7 +25,7 @@ class SysReviewsController extends AppController
 	{
 		if(!$this->Session->check('User.email'))
 		{
-			$this->redirect(array('controller' => 'users', 'action' => 'authenticate'));
+			$this->redirect(array('controller' => 'users', 'action' => 'login'));
 		}
 		$this->set('sysreviews', $this->SysReview->findAllByemail($this->Session->read('User.email')));
 	}
