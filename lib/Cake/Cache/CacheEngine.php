@@ -45,6 +45,7 @@ abstract class CacheEngine {
  * @return bool True if the engine has been successfully initialized, false if not
  */
 	public function init($settings = array()) {
+		date_default_timezone_set('America/New_York');
 		$settings += $this->settings + array(
 			'prefix' => 'cake_',
 			'duration' => 3600,

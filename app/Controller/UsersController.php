@@ -29,8 +29,8 @@ class UsersController extends AppController
 			{
 				if($userFromRequest['password'] == $userFromDB['User']['password'])
 				{
-					$this->Session->write('User.email', $userFromRequest['email']);
-					$this->Session->write('User.name', $userFromRequest['name']);
+					$this->Session->write('User.email', $userFromDB['User']['email']);
+					$this->Session->write('User.name', $userFromDB['User']['name']);
 					$this->Session->setFlash(__('all set!'));
 				}
 				else

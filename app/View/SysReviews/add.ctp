@@ -1,4 +1,4 @@
-<h1>Register</h1>
+<h1>Add New Review</h1>
 <?php
 echo $this->Form->create('SysReview');
 echo $this->Form->input('authorYear');
