@@ -1,7 +1,7 @@
 <?php
 
 echo "<p>" . $this->Html->link('Logout',array('controller' => 'users', 'action' => 'logout')) . "</p>" ;
-echo "<p>" . $this->Html->link('View All Reviews',array('controller' => 'sysreviews', 'action' => 'viewall')) . "</p>" ;
+echo "<p>" . $this->Html->link('View All Reviews',array('controller' => 'sys_reviews', 'action' => 'viewall')) . "</p>" ;
 echo $this->Form->create('SysReview');
 echo $this->Form->input('authorYear');
 echo $this->Form->input('countryCity');

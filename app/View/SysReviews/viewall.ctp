@@ -4,7 +4,7 @@
 <h1>Systematic Reviews by <?php echo $this->Session->read('User.name')?></h1>
 
 <?php 
-echo $this->Html->link('Add New Review',array('controller' => 'sysreviews', 'action' => 'add'));
+echo $this->Html->link('Add New Review',array('controller' => 'sys_reviews', 'action' => 'add'));
 echo "<br />";
 echo $this->Html->link('Logout',array('controller' => 'users', 'action' => 'logout'));
 ?>
