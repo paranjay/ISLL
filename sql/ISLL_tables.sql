@@ -4,27 +4,27 @@ CREATE TABLE isll_users
 (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(50) not null UNIQUE,
-    name varchar(30),
-    password varchar(30)
+    name varchar(100),
+    password varchar(100)
 ) ENGINE = MyISAM;
 
 create table isll_sys_reviews
 (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	email VARCHAR(50),
-	authorYear varchar(50),
-	countryCity varchar(50),
-	studyDesign varchar(50),
-	description  varchar(50),
-	primaryDisease varchar(50),
-	coMorbidities varchar(50),
-	dependentVariables varchar(50),
-	ConceptualTheoreticalFramework varchar(50),
-	interventionDescription varchar(50),
-	results  varchar(50),
-	limitationsOfStudy  varchar(50),
-	strengthsOfStudy  varchar(50),
-	comments varchar(50),
+	authorYear varchar(100),
+	countryCity varchar(100),
+	studyDesign text,
+	description  text,
+	primaryDisease varchar(500),
+	coMorbidities varchar(500),
+	dependentVariables text,
+	ConceptualTheoreticalFramework varchar(500),
+	interventionDescription varchar(100),
+	results  varchar(500),
+	limitationsOfStudy  varchar(500),
+	strengthsOfStudy  varchar(500),
+	comments text,
 	foreign key (email) references isll_users(email)
 ) ENGINE = MyISAM;
 

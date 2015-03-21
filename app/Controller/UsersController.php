@@ -1,9 +1,11 @@
 <?php
 
+App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
 class UsersController extends AppController
 {
 	public $helpers = array('Html', 'Form');
 	public $components = array('RequestHandler');
+	
 			
 	public function register()
 	{
@@ -11,15 +13,20 @@ class UsersController extends AppController
 		{
 			
 			$user = $this->request->data['User'];
+			$passwordHasher = new SimplePasswordHasher(array('hashType' => 'sha256'));
+			$user['password'] = $passwordHasher->hash($user['password']);
 			$this->User->create();
 			if($this->User->save($user))
 			{
 				$this->Session->setFlash(__('Registration Successful'));
+				$this->Session->write('User.email', $user['email']);
+				$this->Session->write('User.name', $user['name']);
+				return $this->redirect(array('controller' => 'sys_reviews', 'action' => 'viewall'));
 			}
 		}
 	}
 	
-	function authenticate()
+	function login()
 	{
 		if($this->request->is('post'))
 		{
@@ -27,11 +34,15 @@ class UsersController extends AppController
 			$userFromDB = $this->User->findByemail($userFromRequest['email']);
 			if(isset($userFromDB['User']))
 			{
-				if($userFromRequest['password'] == $userFromDB['User']['password'])
+				$passwordHasher = new SimplePasswordHasher(array('hashType' => 'sha256'));
+				print_r($userFromDB['User']['password']);
+				echo "<br />";
+				print_r($passwordHasher->hash($userFromRequest['password']));
+				if($passwordHasher->hash($userFromRequest['password']) == $userFromDB['User']['password'])
 				{
 					$this->Session->write('User.email', $userFromDB['User']['email']);
 					$this->Session->write('User.name', $userFromDB['User']['name']);
-					$this->Session->setFlash(__('all set!'));
+					return $this->redirect(array('controller' => 'sys_reviews', 'action' => 'viewall'));
 				}
 				else
 				{
@@ -80,6 +91,12 @@ class UsersController extends AppController
 	function index()
 	{
 		$this->set('users', $this->User->find('all'));
+	}
+	
+	function logout()
+	{
+		$this->Session->destroy();
+		return $this->redirect(array('action' => 'authenticate'));
 	}
 }
 
