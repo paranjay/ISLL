@@ -6,7 +6,7 @@ CREATE TABLE isll_users
     email VARCHAR(50) not null UNIQUE,
     name varchar(100),
     password varchar(100)
-) ENGINE = MyISAM;
+) ENGINE = InnoDB;
 
 create table isll_sys_reviews
 (
@@ -26,7 +26,52 @@ create table isll_sys_reviews
 	strengthsOfStudy  varchar(500),
 	comments text,
 	foreign key (email) references isll_users(email)
-) ENGINE = MyISAM;
+) ENGINE = InnoDB;
+
+create table isll_Honduras_Data_Visit1_patients
+(
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	PatientId int Unique,
+	village varchar(50),
+	age float,
+	clinicDate date,
+	sex varchar(10),
+	height float,
+	weight float,
+	glucose int,
+	systolicBP int,
+	diastolicBP int,
+	concern varchar(100),
+	treatment varchar(100),
+	diabeticYears float,
+	glucose int,
+	medications varchar(100),
+	insulin varchar(50),
+	physicianName varchar(100),
+	physicianfrequency varchar(50),
+	neuropathyRightFoot bit,
+	neuropathyLeftFoot bit,
+	neuropathyRightHand bit,
+	neuropathyLeftHand bit,
+	ulcerLocation varchar(50),
+	lengthOfTimeOfUlcer varchar(50),
+	treatmentOfUlcer varchar(50),
+	breakfast varchar(50),
+	lunch varchar(50),
+	supper varchar(50),
+	SmokePerDay varchar(50),
+	DrinkPerDay varchar(50),
+	ToiletFacility  varchar(50),
+	WhereDoYouBathe  varchar(50),
+	WaterAvailability  varchar(50),
+	HelpAtHome varchar(50),
+	CellPhone Bit,
+	CellPhoneCamera Bit,
+	CellPhoneTakenPicture Bit,
+	CellPhoneSentPicture Bit,
+	CellPhoneText Bit
+	
+)
 
 create table ISLL_Patient
 (
@@ -36,7 +81,7 @@ Consent bit,
 DateOfConsent date,
 Cohort int,
 EligibilityTestResult bit
-)ENGINE=MyISAM;
+)ENGINE=InnoDB;
 
 create table ISLL_Student
 (
@@ -46,7 +91,7 @@ Consent bit,
 DateOfConsent date,
 Cohort int,
 EligibilityTestResult bit
-)ENGINE=MyISAM;
+)ENGINE=InnoDB;
 
 create table ISLL_PatientToStudent
 (
@@ -57,7 +102,7 @@ StartDate date,
 NextAppointmentDate datetime,
 foreign key (StudentId) references ISLL_Student(StudentId),
 foreign key (PatientId) references ISLL_Patient(ParentId)
-)ENGINE=MyISAM;
+)ENGINE=InnoDB;
 
 create table ISLL_Appointment
 (
@@ -65,7 +110,7 @@ AppointmentId int primary key,
 PatientToStudentId int,
 AppointmentDate datetime,
 foreign key (PatientToStudentId) references ISLL_PatientToStudent(PatientToStudentId)
-)ENGINE=MyISAM;
+)ENGINE=InnoDB;
 
 create table ISLL_AnxietyTest
 (
@@ -77,7 +122,7 @@ Q1Response varchar(10),
 Q2Response varchar(10),
 CalculatedScore int,
 foreign key (PatientId) references ISLL_Patient(ParentId)
-)ENGINE=MyISAM;
+)ENGINE=InnoDB;
 
 create table ISLL_SelfEfficacyTest
 (
@@ -89,7 +134,7 @@ Q1Response varchar(10),
 Q2Response varchar(10),
 CalculatedScore int,
 foreign key (PatientId) references ISLL_Patient(ParentId)
-)ENGINE=MyISAM;
+)ENGINE=InnoDB;
 
 create table ISLL_ProficiencyTest
 (
@@ -101,7 +146,7 @@ Q1Response varchar(10),
 Q2Response varchar(10),
 CalculatedScore int,
 foreign key (StudentId) references ISLL_Student(StudentId)
-)ENGINE=MyISAM;
+)ENGINE=InnoDB;
 
 create view PatientStudentvw as
 select

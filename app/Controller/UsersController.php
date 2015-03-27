@@ -35,9 +35,9 @@ class UsersController extends AppController
 			if(isset($userFromDB['User']))
 			{
 				$passwordHasher = new SimplePasswordHasher(array('hashType' => 'sha256'));
-				print_r($userFromDB['User']['password']);
-				echo "<br />";
-				print_r($passwordHasher->hash($userFromRequest['password']));
+				//print_r($userFromDB['User']['password']);
+				//echo "<br />";
+				//print_r($passwordHasher->hash($userFromRequest['password']));
 				if($passwordHasher->hash($userFromRequest['password']) == $userFromDB['User']['password'])
 				{
 					$this->Session->write('User.email', $userFromDB['User']['email']);
