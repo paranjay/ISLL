@@ -23,6 +23,8 @@ echo $this->Html->link('Logout',array('controller' => 'users', 'action' => 'logo
 		<th>Limitations of study (your limitations should be marked with an asterisk)</th>
 		<th>Strengths of Study </th>
 		<th>Comments (note the so what factor)</th>
+		<th>initials</th>
+		
 	</tr>
 	<?php foreach ($sysreviews as $review): ?>
 	<tr>
@@ -39,6 +41,7 @@ echo $this->Html->link('Logout',array('controller' => 'users', 'action' => 'logo
 		<td><?php echo $review['SysReview']['limitationsOfStudy']; ?></td>
 		<td><?php echo $review['SysReview']['strengthsOfStudy']; ?></td>
 		<td><?php echo $review['SysReview']['comments']; ?></td>
+		<td><?php echo $review['SysReview']['initials']; ?></td>
 		<td><?php echo $this->Html->link('edit', array('action' => 'edit', $review['SysReview']['id'])); ?></td>
 	</tr>
 	<?php endforeach; ?>

@@ -16,6 +16,7 @@ echo $this->Form->input('results');
 echo $this->Form->input('limitationsOfStudy');
 echo $this->Form->input('strengthsOfStudy');
 echo $this->Form->input('comments');
+echo $this->Form->input('initials');
 echo $this->Form->end('Update Review');
 
 ?>

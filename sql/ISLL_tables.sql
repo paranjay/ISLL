@@ -25,6 +25,7 @@ create table isll_sys_reviews
 	limitationsOfStudy  varchar(500),
 	strengthsOfStudy  varchar(500),
 	comments text,
+	initials varchar(100)
 	foreign key (email) references isll_users(email)
 ) ENGINE = InnoDB;
 

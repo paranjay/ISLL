@@ -16,5 +16,6 @@ echo $this->Form->input('results', array('label' => 'Results (Descriptive and In
 echo $this->Form->input('limitationsOfStudy', array('label' => 'Limitations of study (your limitations should be marked with an asterisk)'));
 echo $this->Form->input('strengthsOfStudy');
 echo $this->Form->input('comments', array('label' => 'Comments (note the so what factor)'));
+echo $this->Form->input('initials');
 echo $this->Form->end('Add Review');
 ?>
