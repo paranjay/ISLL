@@ -20,8 +20,8 @@ create table isll_sys_reviews
 	coMorbidities varchar(500),
 	dependentVariables text,
 	ConceptualTheoreticalFramework varchar(500),
-	interventionDescription varchar(100),
-	results  varchar(500),
+	interventionDescription text,
+	results text,
 	limitationsOfStudy  varchar(500),
 	strengthsOfStudy  varchar(500),
 	comments text,
@@ -29,6 +29,9 @@ create table isll_sys_reviews
 	foreign key (email) references isll_users(email)
 ) ENGINE = InnoDB;
 
+alter table isll_sys_reviews add initials varchar(100)
+alter table isll_sys_reviews modify results text
+alter table isll_sys_reviews modify interventionDescription text
 create table isll_Honduras_Data_Visit1_patients
 (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -74,9 +77,10 @@ create table isll_Honduras_Data_Visit1_patients
 	
 )
 
-create table ISLL_Patient
+create table isll_patient
 (
-PatientId int primary key,
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+PatientId int unique,
 PatientName varchar(100),
 Consent bit,
 DateOfConsent date,
@@ -113,16 +117,21 @@ AppointmentDate datetime,
 foreign key (PatientToStudentId) references ISLL_PatientToStudent(PatientToStudentId)
 )ENGINE=InnoDB;
 
-create table ISLL_AnxietyTest
+create table isll_anxiety_tests
 (
-TestId int primary key,
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 PatientId int,
 DateofTest date,
 Repetition varchar(10),
-Q1Response varchar(10),
-Q2Response varchar(10),
+Q1Response int,
+Q2Response int,
+Q3Response int,
+Q4Response int,
+Q5Response int,
+Q6Response int,
+Q7Response int,
 CalculatedScore int,
-foreign key (PatientId) references ISLL_Patient(ParentId)
+foreign key (PatientId) references isll_patient(PatientId)
 )ENGINE=InnoDB;
 
 create table ISLL_SelfEfficacyTest

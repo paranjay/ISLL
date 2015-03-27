@@ -9,11 +9,10 @@ class SysReviewsController extends AppController
 	{
 		if($this->request->is('post'))
 		{
-			
-			$user = $this->request->data['SysReview'];
-			$user['email'] = $this->Session->read('User.email');
+			$review = $this->request->data['SysReview'];
+			$review['email'] = $this->Session->read('User.email');
 			$this->SysReview->create();
-			if($this->SysReview->save($user))
+			if($this->SysReview->save($review))
 			{
 				$this->Session->setFlash(__('SysReview Added'));
 			}
