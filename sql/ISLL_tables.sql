@@ -29,9 +29,6 @@ create table isll_sys_reviews
 	foreign key (email) references isll_users(email)
 ) ENGINE = InnoDB;
 
-alter table isll_sys_reviews add initials varchar(100)
-alter table isll_sys_reviews modify results text
-alter table isll_sys_reviews modify interventionDescription text
 create table isll_Honduras_Data_Visit1_patients
 (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -53,10 +50,10 @@ create table isll_Honduras_Data_Visit1_patients
 	insulin varchar(50),
 	physicianName varchar(100),
 	physicianfrequency varchar(50),
-	neuropathyRightFoot bit,
-	neuropathyLeftFoot bit,
-	neuropathyRightHand bit,
-	neuropathyLeftHand bit,
+	neuropathyRightFoot tinyint,
+	neuropathyLeftFoot tinyint,
+	neuropathyRightHand tinyint,
+	neuropathyLeftHand tinyint,
 	ulcerLocation varchar(50),
 	lengthOfTimeOfUlcer varchar(50),
 	treatmentOfUlcer varchar(50),
@@ -69,11 +66,11 @@ create table isll_Honduras_Data_Visit1_patients
 	WhereDoYouBathe  varchar(50),
 	WaterAvailability  varchar(50),
 	HelpAtHome varchar(50),
-	CellPhone Bit,
-	CellPhoneCamera Bit,
-	CellPhoneTakenPicture Bit,
-	CellPhoneSentPicture Bit,
-	CellPhoneText Bit
+	CellPhone tinyint,
+	CellPhoneCamera tinyint,
+	CellPhoneTakenPicture tinyint,
+	CellPhoneSentPicture tinyint,
+	CellPhoneText tinyint
 	
 )
 
@@ -82,20 +79,20 @@ create table isll_patient
 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 PatientId int unique,
 PatientName varchar(100),
-Consent bit,
+Consent tinyint,
 DateOfConsent date,
 Cohort int,
-EligibilityTestResult bit
+EligibilityTestResult tinyint
 )ENGINE=InnoDB;
 
 create table ISLL_Student
 (
 StudentId int primary key,
 StudentName varchar(100),
-Consent bit,
+Consent tinyint,
 DateOfConsent date,
 Cohort int,
-EligibilityTestResult bit
+EligibilityTestResult tinyint
 )ENGINE=InnoDB;
 
 create table ISLL_PatientToStudent
