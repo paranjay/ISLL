@@ -21,16 +21,12 @@ class AnxietyTestsController extends AppController
 				
 				//return $this->redirect(array('controller' => 'GADs', 'action' => 'viewall'));
 			}
+			else
+			{
+				$this->Session->setFlash(__('unable to add'));
+			}
 		}
 	}
-	
-	public function viewall()
-	{
-		if(!$this->Session->check('User.email'))
-		{
-			$this->redirect(array('controller' => 'users', 'action' => 'login'));
-		}
-		$this->set('GADS', $this->AnxietyTest->find('all'));
-	}
+
 }
 ?>

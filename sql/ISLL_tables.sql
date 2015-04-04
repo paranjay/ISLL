@@ -45,7 +45,6 @@ create table isll_Honduras_Data_Visit1_patients
 	concern varchar(100),
 	treatment varchar(100),
 	diabeticYears float,
-	glucose int,
 	medications varchar(100),
 	insulin varchar(50),
 	physicianName varchar(100),
@@ -74,7 +73,7 @@ create table isll_Honduras_Data_Visit1_patients
 	
 )
 
-create table isll_patient
+create table isll_patients
 (
 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 PatientId int unique,
@@ -85,8 +84,9 @@ Cohort int,
 EligibilityTestResult tinyint
 )ENGINE=InnoDB;
 
-create table ISLL_Student
+create table isll_students
 (
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 StudentId int primary key,
 StudentName varchar(100),
 Consent tinyint,
@@ -182,12 +182,12 @@ select * from ISLL_AnxietyTest;
 select * from ISLL_Appointment;
 select * from ISLL_PatientToStudent;
 
-insert into ISLL_Patient values (1100, "Mike Thomas", 1, CURDATE(), 1, 1);
-insert into ISLL_Patient values (1101, "John Doe", 1, CURDATE(), 1, 1);
-insert into ISLL_Patient values (1202, "Jane Doe", 1, CURDATE(), 2, 1);
+insert into ISLL_Patients values (1, 1100, "Mike Thomas", 1, CURDATE(), 1, 1);
+insert into ISLL_Patients values (2, 1101, "John Doe", 1, CURDATE(), 1, 1);
+insert into ISLL_Patients values (3, 1202, "Jane Doe", 1, CURDATE(), 2, 1);
 
-insert into ISLL_Student values (110, "Ethan Hunt", 1, CURDATE(), 1, 1); 
-insert into ISLL_Student values (121, "Julia Roberts", 1, CURDATE(), 2, 1);
+insert into ISLL_Students values (1, 110, "Ethan Hunt", 1, CURDATE(), 1, 1); 
+insert into ISLL_Students values (2, 121, "Julia Roberts", 1, CURDATE(), 2, 1);
 
 insert into ISLL_PatientToStudent values (1, 110, 1100, CURDATE(), CURDATE());
 insert into ISLL_AnxietyTest values (1, 1100, CURDATE(), "begin", "0", "1", 0.34);

@@ -42,7 +42,7 @@ class UsersController extends AppController
 				{
 					$this->Session->write('User.email', $userFromDB['User']['email']);
 					$this->Session->write('User.name', $userFromDB['User']['name']);
-					return $this->redirect(array('controller' => 'sys_reviews', 'action' => 'viewall'));
+					return $this->redirect(array('controller' => 'users', 'action' => 'index'));
 				}
 				else
 				{
@@ -90,7 +90,18 @@ class UsersController extends AppController
 	
 	function index()
 	{
-		$this->set('users', $this->User->find('all'));
+		if(!$this->Session->check('User.email'))
+		{
+			$this->set('user', $this->User->findByemail($this->Session->read('User.email')));
+		}
+		if(isset($this->request->data['Student']))
+		{
+			return $this->redirect(array('controller' => 'students', 'action' => 'view', $this->request->data['Student']['studentId']));
+		}
+		else if(isset($this->request->data['Patient']))
+		{
+			return $this->redirect(array('controller' => 'patients', 'action' => 'view', $this->request->data['Patient']['patientId']));
+		}	
 	}
 	
 	function logout()
