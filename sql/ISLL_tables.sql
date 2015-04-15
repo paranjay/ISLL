@@ -25,53 +25,9 @@ create table isll_sys_reviews
 	limitationsOfStudy  varchar(500),
 	strengthsOfStudy  varchar(500),
 	comments text,
-	initials varchar(100)
+	initials varchar(100), 
 	foreign key (email) references isll_users(email)
 ) ENGINE = InnoDB;
-
-create table isll_Honduras_Data_Visit1_patients
-(
-	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	PatientId int Unique,
-	village varchar(50),
-	age float,
-	clinicDate date,
-	sex varchar(10),
-	height float,
-	weight float,
-	glucose int,
-	systolicBP int,
-	diastolicBP int,
-	concern varchar(100),
-	treatment varchar(100),
-	diabeticYears float,
-	medications varchar(100),
-	insulin varchar(50),
-	physicianName varchar(100),
-	physicianfrequency varchar(50),
-	neuropathyRightFoot tinyint,
-	neuropathyLeftFoot tinyint,
-	neuropathyRightHand tinyint,
-	neuropathyLeftHand tinyint,
-	ulcerLocation varchar(50),
-	lengthOfTimeOfUlcer varchar(50),
-	treatmentOfUlcer varchar(50),
-	breakfast varchar(50),
-	lunch varchar(50),
-	supper varchar(50),
-	SmokePerDay varchar(50),
-	DrinkPerDay varchar(50),
-	ToiletFacility  varchar(50),
-	WhereDoYouBathe  varchar(50),
-	WaterAvailability  varchar(50),
-	HelpAtHome varchar(50),
-	CellPhone tinyint,
-	CellPhoneCamera tinyint,
-	CellPhoneTakenPicture tinyint,
-	CellPhoneSentPicture tinyint,
-	CellPhoneText tinyint
-	
-)
 
 create table isll_patients
 (
@@ -194,3 +150,47 @@ insert into ISLL_AnxietyTest values (1, 1100, CURDATE(), "begin", "0", "1", 0.34
 insert into ISLL_SelfEfficacyTest values (1, 1100, CURDATE(), "begin", "0", "1", 0.67);
 insert into ISLL_ProficiencyTest values (1, 110, CURDATE(), "begin", "0", "1", 0.58);
 insert into ISLL_Appointment values (1,1, CURDATE());
+
+create table isll_Honduras_Data_Visit1_patients
+(
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	PatientId int Unique,
+	village varchar(50),
+	age float,
+	clinicDate date,
+	sex varchar(10),
+	height float,
+	weight float,
+	glucose int,
+	systolicBP int,
+	diastolicBP int,
+	concern varchar(100),
+	treatment varchar(100),
+	diabeticYears float,
+	medications varchar(100),
+	insulin varchar(50),
+	physicianName varchar(100),
+	physicianfrequency varchar(50),
+	neuropathyRightFoot tinyint,
+	neuropathyLeftFoot tinyint,
+	neuropathyRightHand tinyint,
+	neuropathyLeftHand tinyint,
+	ulcerLocation varchar(50),
+	lengthOfTimeOfUlcer varchar(50),
+	treatmentOfUlcer varchar(50),
+	breakfast varchar(50),
+	lunch varchar(50),
+	supper varchar(50),
+	SmokePerDay varchar(50),
+	DrinkPerDay varchar(50),
+	ToiletFacility  varchar(50),
+	WhereDoYouBathe  varchar(50),
+	WaterAvailability  varchar(50),
+	HelpAtHome varchar(50),
+	CellPhone tinyint,
+	CellPhoneCamera tinyint,
+	CellPhoneTakenPicture tinyint,
+	CellPhoneSentPicture tinyint,
+	CellPhoneText tinyint
+	
+)ENGINE=InnoDB;

@@ -26,7 +26,8 @@ class SysReviewsController extends AppController
 		{
 			$this->redirect(array('controller' => 'users', 'action' => 'login'));
 		}
-		$this->set('sysreviews', $this->SysReview->findAllByemail($this->Session->read('User.email')));
+		//$this->set('sysreviews', $this->SysReview->findAllByemail($this->Session->read('User.email')));
+		$this->set('sysreviews', $this->SysReview->find('all'));
 	}
 	
 	public function edit($id)

@@ -12,7 +12,6 @@ class PatientsController extends AppController
 		}
 		if($this->request->is('post'))
 		{
-			
 			$patient = $this->request->data['Patient'];
 			$this->Patient->create();
 			if($this->Patient->save($patient))
@@ -28,9 +27,9 @@ class PatientsController extends AppController
 		$patient = $this->Patient->findByPatientid($id);
 		//$id = $patient['Patient']['id'];
 		$this->loadModel('AnxietyTest');
-		$gad = $this->AnxietyTest->findBypatientid($id);
+		$gads = $this->AnxietyTest->findBypatientid($id);
 		
-		
+		$this->set('gads', $gads);
 	}
 }
 ?>

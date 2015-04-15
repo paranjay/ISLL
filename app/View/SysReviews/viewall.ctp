@@ -1,6 +1,3 @@
-<?php
-
-?>
 <h1>Systematic Reviews by <?php echo $this->Session->read('User.name')?></h1>
 
 <?php 
