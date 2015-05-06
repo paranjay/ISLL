@@ -1,63 +1,81 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-
-$cakeDescription = __d('cake_dev', 'ISLL : Data management website for ISLL project');
-$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
-?>
 <!DOCTYPE html>
-<html>
-<head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $this->fetch('title'); ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		echo $this->Html->css('cake.generic');
-
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
+    <title>ISLL: Data Management Framework</title>
+    
+    <?php 
+    //Bootstrap core CSS -->
+    echo $this->Html->css('bootstrap.min');
+    echo $this->Html->css('sb-admin');
+	echo $this->Html->css('font-awesome.min');
+    //Add custom CSS here -->
+    
+    //echo $this->Html->script(array('jquery-1.7.2','jquery'));
+    
 	?>
-</head>
-<body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, '#'); ?></h1>
-		</div>
-		<div id="content">
+	
+  </head>
 
-			<?php echo $this->Session->flash(); ?>
+  <body>
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php /* echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);*/
-			?>
-			<p>
-				<?php //echo $cakeVersion; ?>
-			</p>
-		</div>
-	</div>
-	<?php //echo $this->element('sql_dump'); ?>
-</body>
-</html>
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"> <i class="fa fa-university"></i>ISLL: Data Management Framework</a>
+       </div>
+       <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav side-nav">
+            
+            <li> <?php echo $this->Html->link('<i class="fa fa-users"></i> Systematic Reviews',
+            						array('controller' => 'sys_reviews',
+            							'action' => 'viewall' 
+            							),
+            						array('data-original-title'=>'Systematic Reviews','escape'=>false)
+            						) ?> </li>
+            <li> <?php echo	$this->Html->link('<i class="fa fa-share-square"></i> View ',
+            						array('controller' => 'users',
+            							'action' => 'index'),
+            							array('data-original-title'=>'View','escape'=>false)
+            						)?> </li>
+			<li> <?php echo	$this->Html->link('<i class="fa fa-briefcase"></i> Add a Patient ',
+            						array('controller' => 'patients',
+            							'action' => 'add'),
+            							array('data-original-title'=>'Add a Patient','escape'=>false)
+            						)?> </li>
+            <li> <?php echo $this->Html->link('<i class="fa fa-home"></i> Add a Student ',
+            						array('controller' => 'students',
+            							'action' => 'add'
+            							),array('data-original-title'=>' Add a Student','escape'=>false)
+            						) ?></li>
+             </ul>
+            
+          </div>
+          
+          </nav>
+          <div id="page-wrapper">
+          <div class="container-fluid">
+          <?php echo $this->fetch('content'); ?>
+          </div>
+          </div>
+    	</div>
+    	<?php
+    	echo $this->Html->script('jquery');
+    	echo $this->Html->script('bootstrap');
+    	?>
+         </body>
+         </html>
+         
