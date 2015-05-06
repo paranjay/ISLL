@@ -63,7 +63,7 @@
             						) ?></li>
             <li> <?php echo $this->Html->link('<i class="fa fa-dashboard"></i> All Students ',
             						array('controller' => 'students',
-            							'action' => 'add'
+            							'action' => 'viewall'
             							),array('data-original-title'=>' All Students','escape'=>false)
             						) ?></li>
              </ul>
