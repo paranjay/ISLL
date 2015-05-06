@@ -2,10 +2,10 @@
 
 <?php 
 echo $this->Html->link('Add New Review',array('controller' => 'sys_reviews', 'action' => 'add'));
-echo "<br />";
-echo $this->Html->link('Logout',array('controller' => 'users', 'action' => 'logout'));
 ?>
-<table>
+<div class = "col-lg-12"> <div class="table-responsive">
+<table class="table table-bordered table-hover" >
+<thead>
 	<tr>
 		<th>Author, Year</th>
 		<th>Country, City</th>
@@ -22,7 +22,7 @@ echo $this->Html->link('Logout',array('controller' => 'users', 'action' => 'logo
 		<th>Comments (note the so what factor)</th>
 		<th>initials</th>
 		
-	</tr>
+	</tr></thead>
 	<?php foreach ($sysreviews as $review): ?>
 	<tr>
 		<td><?php echo $review['SysReview']['authorYear']; ?></td>
@@ -44,3 +44,4 @@ echo $this->Html->link('Logout',array('controller' => 'users', 'action' => 'logo
 	<?php endforeach; ?>
 	<?php unset($review); ?>
 </table>
+</div></div>

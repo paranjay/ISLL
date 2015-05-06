@@ -26,5 +26,14 @@ class StudentsController extends AppController
 	{
 		echo $id;
 	}
+	
+	public function viewall()
+	{
+		if(!$this->Session->check('User.email'))
+		{
+			$this->redirect(array('controller' => 'users', 'action' => 'login'));
+		}
+		$this->set('students', $this->Student->find('all'));
+	}
 }
 ?>
