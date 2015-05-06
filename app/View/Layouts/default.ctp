@@ -61,6 +61,11 @@
             							'action' => 'add'
             							),array('data-original-title'=>' Add a Student','escape'=>false)
             						) ?></li>
+            <li> <?php echo $this->Html->link('<i class="fa fa-dashboard"></i> All Students ',
+            						array('controller' => 'students',
+            							'action' => 'add'
+            							),array('data-original-title'=>' All Students','escape'=>false)
+            						) ?></li>
              </ul>
             
           </div>
