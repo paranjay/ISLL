@@ -1,9 +1,4 @@
 <p>Logged in User: <?php echo $this->Session->read('User.name'); ?></p>
-<?php
-echo "<p>" . $this->Html->link('Logout',array('controller' => 'users', 'action' => 'logout')) . "</p>" ;
-//echo "<p>" . $this->Html->link('View All Anxiety Scores',array('controller' => 'AnxietyTests', 'action' => 'viewall')) . "</p>" ;
-
-?>
 <center><h1> Add Student </h1>
 <?php
 if(isset($debug))

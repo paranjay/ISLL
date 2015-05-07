@@ -66,6 +66,11 @@
             							'action' => 'viewall'
             							),array('data-original-title'=>' All Students','escape'=>false)
             						) ?></li>
+            <li> <?php echo $this->Html->link('<i class="fa fa-power-off"></i> Logout ',
+            						array('controller' => 'users',
+            							'action' => 'logout'
+            							),array('data-original-title'=>' Logout','escape'=>false)
+            						) ?></li>
              </ul>
             
           </div>
