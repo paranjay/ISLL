@@ -13,7 +13,18 @@ class StudentsController extends AppController
 		if($this->request->is('post'))
 		{
 			
+			$exp =array();
+			for($i=1; $i<=6; $i++)
+			{
+				//echo $this->request->data['Student']['previousexperience' . $i];
+				if((isset($this->request->data['Student']['previousexperience' . $i])) && $this->request->data['Student']['previousexperience' . $i] == 1)
+				{
+					$exp[] = $i;
+				}
+			}
+			//$this->set('debug', $exp);
 			$student = $this->request->data['Student'];
+			$student['previousexperience'] = implode(',',$exp);
 			$this->Student->create();
 			if($this->Student->save($student))
 			{

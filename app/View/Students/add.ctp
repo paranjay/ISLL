@@ -2,17 +2,24 @@
 <?php
 echo "<p>" . $this->Html->link('Logout',array('controller' => 'users', 'action' => 'logout')) . "</p>" ;
 //echo "<p>" . $this->Html->link('View All Anxiety Scores',array('controller' => 'AnxietyTests', 'action' => 'viewall')) . "</p>" ;
+
 ?>
-<center><h1> Add Student </h1></center>
+<center><h1> Add Student </h1>
+<?php
+if(isset($debug))
+{
+	print_r($debug);
+}
+?></center>
 <?php
 echo $this->Form->create('Student');
 echo $this->Form->input('studentid', array('class' => 'form-control'));
 echo $this->Form->input('studentname', array('class' => 'form-control'));
-echo "<div class=\"checkbox\">" . $this->Form->checkbox('consent', array('hiddenField' => FALSE,'class' => 'form-control'));
+echo "<div class=\"checkbox\">" . $this->Form->checkbox('consent', array('hiddenField' => false,'class' => 'form-control'));
 echo $this->Form->label('consent') . "</div>";
 echo $this->Form->input('dateofconsent', array('class' => 'form-control'));
 echo $this->Form->input('cohort', array('class' => 'form-control'));
-echo "<div class=\"checkbox\">" . $this->Form->checkbox('eligibilitytestresult', array('hiddenField' => FALSE, 'class' => 'form-control'));
+echo "<div class=\"checkbox\">" . $this->Form->checkbox('eligibilitytestresult', array('hiddenField' => false, 'class' => 'form-control'));
 echo $this->Form->label('Eligibility Test Result') . "</div>";
 echo $this->Form->input('mstrack', array(
     'options' => array('ANP'=>'ANP', 'FNP' => 'FNP'),
@@ -65,8 +72,23 @@ echo $this->Form->input('annualincome', array(
     					'more than $50,000' => 'more than $50,000'),
     'empty' => '(choose one)','class' => 'form-control'
 ));
-echo $this->Form->input('previousexperience', array('class' => 'form-control'));
-
+?>
+<div class="input">
+<label>Indicate any previous experience with the Spanish language</label>
+<?php
+echo "<div class=\"checkbox\">" . $this->Form->checkbox('previousexperience1', array('hiddenField' => false, 'class' => 'form-control'));
+echo $this->Form->label('I studied Spanish in high school') . "</div>";
+echo "<div class=\"checkbox\">" . $this->Form->checkbox('previousexperience2', array('hiddenField' => false, 'class' => 'form-control'));
+echo $this->Form->label('I studied Spanish in college as an undergraduate') . "</div>";
+echo "<div class=\"checkbox\">" . $this->Form->checkbox('previousexperience3', array('hiddenField' => false, 'class' => 'form-control'));
+echo $this->Form->label('I lived in a Spanish speaking country') . "</div>";
+echo "<div class=\"checkbox\">" . $this->Form->checkbox('previousexperience4', array('hiddenField' => false, 'class' => 'form-control'));
+echo $this->Form->label('I attended school in a Spanish country') . "</div>";
+echo "<div class=\"checkbox\">" . $this->Form->checkbox('previousexperience5', array('hiddenField' => false, 'class' => 'form-control'));
+echo $this->Form->label('I spoke Spanish in the home with my immediate family') . "</div>";
+echo "<div class=\"checkbox\">" . $this->Form->checkbox('previousexperience6', array('hiddenField' => false, 'class' => 'form-control'));
+echo $this->Form->label('I spoke Spanish in the home with my extended family') . "</div>";
+echo "</div>";
 echo $this->Form->input('personalevalutaion', array(
 	'options' => array('Very Little fluency' => 'Very Little fluency', 
 						'Some Fluency' => 'Some Fluency', 
