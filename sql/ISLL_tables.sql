@@ -43,13 +43,28 @@ EligibilityTestResult tinyint
 create table isll_students
 (
 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-StudentId int primary key,
-StudentName varchar(100),
-Consent tinyint,
-DateOfConsent date,
-Cohort int,
-EligibilityTestResult tinyint
+studentid int unique,
+studentname varchar(100),
+consent tinyint,
+dateofconsent date,
+cohort int,
+eligibilitytestresult tinyint,
+mstrack varchar(10),
+age int,
+sex varchar(10),
+education varchar(20),
+maritalstatus varchar(50),
+work varchar(20),
+hispanic varchar(20),
+race varchar(50),
+healthinsurance varchar(10),
+children int,
+peoplehousehold int,
+annualincome varchar(20),
+previousexperience varchar(100),
+personalevalutaion varchar(50)
 )ENGINE=InnoDB;
+
 
 create table ISLL_PatientToStudent
 (
